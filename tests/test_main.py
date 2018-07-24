@@ -20,6 +20,15 @@ class MainTestCase(unittest.TestCase):
         Test main with request mock
         """
 
-        mock.get(self.url, text='resp', status_code=200)
+        mock.get(self.url, text='resp')
+        main()
 
+
+    @requests_mock.Mocker()
+    def test_main_failure(self, mock):
+        """
+        Test main with request mock as failure
+        """
+
+        mock.get(self.url, text='resp', status_code=500)
         main()
