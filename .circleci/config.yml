@@ -61,12 +61,6 @@ workflows:
 
   build_and_deploy:
     jobs:
-      
-      - build
 
-      - deploy:
-        requires:
-          - build
-        # branches:
-        #   only:
-        #     - master
+      - build
+      - deploy
