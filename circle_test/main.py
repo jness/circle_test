@@ -1,3 +1,4 @@
+import sys
 import requests
 
 
@@ -6,12 +7,18 @@ def main():
     Main function
     """
 
-    res = requests.get('http://circleci.com')
+    url = 'http://circleci.com'
+
+    if len(sys.argv) == 2:
+        if 'http://' in sys.argv[1]:
+            url = sys.argv[1]
+
+    res = requests.get(url)
 
     if res:
-        return res.reason
+        print('%s returned success: %s' % (url, res))
     else:
-        return res.reason
+        print('%s returned error: %s' % (url, res))
 
 
 if __name__ == '__main__':

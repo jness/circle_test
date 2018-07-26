@@ -1,5 +1,4 @@
 from setuptools import setup, find_packages
-from glob import glob
 
 #
 # Licensed to the Apache Software Foundation (ASF) under one
@@ -20,7 +19,7 @@ from glob import glob
 # under the License.
 #
 
-version = '0.0.1'
+version = '0.0.2'
 
 setup(
     name='circle_test',
