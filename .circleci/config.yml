@@ -59,6 +59,6 @@ jobs:
           name: use docker
           command: |
             TAG=0.1.$CIRCLE_BUILD_NUM
-            docker build -t flip387/circle_test
+            docker build -t flip387/circle_test:TAG .
             docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
             docker push flip387/circle_test:$TAG
