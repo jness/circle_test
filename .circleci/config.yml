@@ -1,13 +1,10 @@
-defaults:
-  working_directory: ~/circle_test
-  docker:
-    - image: circleci/python:3.6.1
-
 version: 2
 
 jobs:
 
   build:
+    docker:
+      - image: circleci/python:3.6.1
     steps:
       - checkout
 
@@ -40,6 +37,8 @@ jobs:
             coverage report -m -i --omit=venv/*,tests/*,.eggs/*
 
   deploy:
+    docker:
+      - image: circleci/python:3.6.1
     steps:
 
       - setup_remote_docker:
