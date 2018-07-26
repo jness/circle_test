@@ -66,6 +66,6 @@ workflows:
       - deploy:
         requires:
           - build
-        branches:
-          only:
-            - master
+        # branches:
+        #   only:
+        #     - master
