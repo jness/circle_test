@@ -3,14 +3,17 @@
 # Check https://circleci.com/docs/2.0/language-python/ for more details
 #
 version: 2
+
 jobs:
   build:
+
     docker:
       - image: circleci/python:3.6.1
 
     working_directory: ~/repo
 
     steps:
+
       - checkout
 
       # Download and cache dependencies
@@ -48,3 +51,11 @@ jobs:
       - store_artifacts:
           path: .coverage
           destination: coverage
+
+      - setup_remote_docker:
+          docker_layer_caching: true
+
+      - run:
+        name: "Start Service and Check That it’s Running"
+        command: |
+          docker
